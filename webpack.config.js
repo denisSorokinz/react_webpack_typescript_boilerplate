@@ -34,9 +34,14 @@ module.exports = {
             (minimizer) => new TerserWebpackPlugin().apply(minimizer),
         ],
     },
+    /* Aliases for imports (update in tsconfig.json)
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
+        alias: {
+            Assets: path.join(__dirname, "src", "assets"),
+        },
     },
+    */
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
