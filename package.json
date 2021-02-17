@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "webpack": "webpack --config ./webpack.config.js",
-        "dev": "webpack-dev-server --open --port='3005'"
+        "dev": "webpack-dev-server --port='3005'"
     },
     "keywords": [],
     "author": "",
