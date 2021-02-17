@@ -17,13 +17,27 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss?$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "sass-loader",
+                ],
                 exclude: ["/node_modules/"],
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                ],
                 exclude: ["/node_modules/"],
+            },
+            {
+                test: [
+                    /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+                    /\.(png|svg|jpg|gif)$/i,
+                ],
+                use: ["file-loader"],
             },
         ],
     },
@@ -34,20 +48,18 @@ module.exports = {
             (minimizer) => new TerserWebpackPlugin().apply(minimizer),
         ],
     },
-    /* Aliases for imports (update in tsconfig.json)
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
         alias: {
             Assets: path.join(__dirname, "src", "assets"),
         },
     },
-    */
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "public", "index.html"),
             minify: {
-                collapseWhitespace: true
-            }
+                collapseWhitespace: true,
+            },
         }),
         new MiniCssExtractPlugin(),
     ],
